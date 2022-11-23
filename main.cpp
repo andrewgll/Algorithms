@@ -1,7 +1,14 @@
 #include <iostream>
+#include <string.h>
+
 #include "dfs.h" 
 #include "bfs.h"
 #include "dijkstra.h"
+#include "bubble_sort.h"
+#include "binary_search.h"
+#include "insertion_sort.h"
+#include "heap_sort.h"
+#include "lcs.h"
 void DFS(){
 	Graph_DFS g;
 	g.addEdge(0, 1);
@@ -49,7 +56,63 @@ void dijkstra()
     dijkstra(graph, 0);
  
 }
+void binSearch(){
+
+    std::vector<int> v = { 1, 3, 4, 5, 6 };
+    std::cout << "Vector for findings: \n";
+    for(int i = 0; i<v.size();i++){
+        std::cout << v[i] << " ";
+    }
+    int To_Find = 1;
+    std::cout << "\nItem to be found: " << To_Find << "\n";
+    binary_search(v, To_Find);
+    To_Find = 6;
+    std::cout << "\nItem to be found: " << To_Find << "\n";
+    binary_search(v, To_Find);
+    To_Find = 10;
+    std::cout << "\nItem to be found: " << To_Find << "\n";
+    binary_search(v, To_Find);
+}
+void bubbleSort(){
+    int arr[] = { 5, 1, 4, 2, 8};
+    int N = sizeof(arr) / sizeof(arr[0]);
+    bubble_sort(arr);
+    std::cout << "Sorted array: \n";
+    printArray(arr);
+}
+void insertionSort(){
+     int arr[] = { 12, 11, 13, 5, 6 };
+    int N = sizeof(arr) / sizeof(arr[0]);
+    insertion_sort(arr, N);
+    print_array(arr, N);
+
+}
+void heapSort(){
+      int arr[] = { 12, 11, 13, 5, 6, 7 };
+    int N = sizeof(arr) / sizeof(arr[0]);
+ 
+    // Function call
+    heapify(arr, N, 0);
+ 
+    std::cout << "Sorted array is \n";
+    print_array(arr, N);
+}
+void lcs_fun(){
+    char X[] = "AGGTAB";
+    char Y[] = "GXTXAYB";
+
+    int m = strlen(X);
+    int n = strlen(Y);
+
+    std::cout << "Length of LCS is " <<  lcs( X, Y, m, n);
+}
 int main() {
-	dijkstra();
+    lcs_fun();
+    //BFS();
+    //DFS();
+    //dijkstra();
+    //binSearch();
+	//bubbleSort();
+    //insertionSort();
     return 0;
 }
